@@ -71,6 +71,8 @@ class Exam(QWidget, form_window):
                 temp = temp.replace('새기', '새끼')
             if '시시기' in temp:
                 temp = temp.replace('시시기', '군중제어기')
+            if '씨씨기' in temp:
+                temp = temp.replace('씨씨기', '군중제어기')
             if '개사기' in temp:
                 temp = temp.replace('개사기', '매우 강함')
             if '라인전' in temp:
@@ -83,8 +85,10 @@ class Exam(QWidget, form_window):
                 temp = temp.replace('날먹', '쉬운')
             if '씨에스' in temp:
                 temp = temp.replace('씨에스', '골드')
+            if '시에스' in temp:
+                temp = temp.replace('시에스', '골드')
             if '미니언' in temp:
-                temp = temp.replace('씨에스', '골드')
+                temp = temp.replace('미니언', '골드')
             if '킬데스' in temp:
                 temp = temp.replace('킬데스', '킬뎃')
             if '챔' in temp:
