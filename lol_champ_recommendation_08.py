@@ -124,7 +124,6 @@ class Exam(QWidget, form_window):
             #         if word not in stopwords:
             #             words.append(word)
             #             pass
-
             cleanSentence = ' '.join(words)
 
         sentence_vec = self.Tfidf.transform([cleanSentence])
@@ -140,13 +139,13 @@ class Exam(QWidget, form_window):
         if keyword == '': return
 
         if keyword in self.titles:
-            recommendation = self.recommandation_by_movie_title(keyword)
+            recommendation = self.recommandation_by_champ_title(keyword)
             self.lbl_recommendation.setText(recommendation[len(keyword):])
-        elif ' ' in keyword:
-            self.lbl_recommendation.setText(self.sentenceBased(keyword))
-
         else:
-            recommendation = self.recommendation_by_keyword(keyword)
+            try:
+                recommendation = self.recommendation_by_keyword(keyword)
+            except:
+                recommendation = self.sentenceBased(keyword)
 
             self.lbl_recommendation.setText(recommendation)
 
@@ -186,15 +185,16 @@ class Exam(QWidget, form_window):
         simScore = sorted(simScore, key=lambda x: x[1], reverse=True)
         simScore = simScore[:11]
         moviIdx = [i[0] for i in simScore]
-        recMovieList = self.df_reviews.iloc[moviIdx, 0]
-        return recMovieList
+        recChampList = self.df_reviews.iloc[moviIdx, 0]
+
+        return recChampList
 
     def combobox_slot(self):
         title = self.comboBox.currentText()
-        recommendation = self.recommandation_by_movie_title(title)
+        recommendation = self.recommandation_by_champ_title(title)
         self.lbl_recommendation.setText(recommendation[len(title):])
 
-    def recommandation_by_movie_title(self, title):
+    def recommandation_by_champ_title(self, title):
         movie_idx = self.df_reviews[self.df_reviews['name'] == title].index[0]
         cosine_sim = linear_kernel(self.Tfidf_matrix[movie_idx], self.Tfidf_matrix)
         recommendation = self.getRecommendation(cosine_sim)
