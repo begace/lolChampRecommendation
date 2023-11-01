@@ -1,3 +1,4 @@
+# 크롤링한 파일 합치기
 import os
 
 directory_path = "G:\\aiProject\\lol_project\\inven_champ_url\\"
@@ -16,6 +17,3 @@ with open(output_file, 'w', encoding='utf-8') as out_file:
             content = in_file.read().replace('\n', ', ')
             print(f"{champ_name}, {content[:10]}")
             out_file.write(f"{champ_name}, {content.replace(',', ' ')}\n")
-"""
-
-"""
