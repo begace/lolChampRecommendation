@@ -28,47 +28,51 @@ one = []
 
 for i in tqdm(range(len(temp))):
     # 특수한 단어들을 미리 처리함
-    if '그랩' in temp[i]:
-        temp[i] = temp[i].replace('그랩', '잡기')
-    if '맞다이' in temp[i]:
-        temp[i] = temp[i].replace('맞다이', '일대일')
-    if '일댈' in temp[i]:
-        temp[i] = temp[i].replace('일댈', '일대일')
-    if '1대1' in temp[i]:
-        temp[i] = temp[i].replace('1대1', '일대일')
-    if '다대1' in temp[i]:
-        temp[i] = temp[i].replace('다대1', '다대일')
-    if '1대다' in temp[i]:
-        temp[i] = temp[i].replace('1대다', '다대일')
-    if '한타' in temp[i]:
-        temp[i] = temp[i].replace('한타', '대규모 교전')
-    if '새기' in temp[i]:
-        temp[i] = temp[i].replace('새기', '새끼')
-    if '시시기' in temp[i]:
-        temp[i] = temp[i].replace('시시기', '군중제어기')
-    if '개사기' in temp[i]:
-        temp[i] = temp[i].replace('개사기', '매우 강함')
-    if '라인전' in temp[i]:
-        temp[i] = temp[i].replace('라인전', '초반')
-    if '포킹' in temp[i]:
-        temp[i] = temp[i].replace('포킹', '견제')
-    if '이니시' in temp[i]:
-        temp[i] = temp[i].replace('이니시', '개전')
-    if '날먹' in temp[i]:
-        temp[i] = temp[i].replace('날먹', '쉬운')
-    if '씨에스' in temp[i]:
-        temp[i] = temp[i].replace('씨에스', '골드')
-    if '미니언' in temp[i]:
-        temp[i] = temp[i].replace('씨에스', '골드')
-    if '킬데스' in temp[i]:
-        temp[i] = temp[i].replace('킬데스', '킬뎃')
-    if '챔' in temp[i]:
-        temp[i] = temp[i].replace('챔피온', '챔피언')
-        temp[i] = temp[i].replace('챔피언', '챔피언')
-        temp[i] = temp[i].replace('챔프', '챔피언')
-        temp[i] = temp[i].replace('챔', '챔피언')
-    if '캐릭' in temp[i]:
-        temp[i] = temp[i].replace('캐릭', '챔피언')
+    if '그랩' in temp:
+        temp = temp.replace('그랩', '잡기')
+    if '맞다이' in temp:
+        temp = temp.replace('맞다이', '일대일')
+    if '일댈' in temp:
+        temp = temp.replace('일댈', '일대일')
+    if '1대1' in temp:
+        temp = temp.replace('1대1', '일대일')
+    if '다대1' in temp:
+        temp = temp.replace('다대1', '다대일')
+    if '1대다' in temp:
+        temp = temp.replace('1대다', '다대일')
+    if '한타' in temp:
+        temp = temp.replace('한타', '대규모 교전')
+    if '새기' in temp:
+        temp = temp.replace('새기', '새끼')
+    if '시시기' in temp:
+        temp = temp.replace('시시기', '군중제어기')
+    if '씨씨기' in temp:
+        temp = temp.replace('씨씨기', '군중제어기')
+    if '개사기' in temp:
+        temp = temp.replace('개사기', '매우 강함')
+    if '라인전' in temp:
+        temp = temp.replace('라인전', '초반')
+    if '포킹' in temp:
+        temp = temp.replace('포킹', '견제')
+    if '이니시' in temp:
+        temp = temp.replace('이니시', '개전')
+    if '날먹' in temp:
+        temp = temp.replace('날먹', '쉬운')
+    if '씨에스' in temp:
+        temp = temp.replace('씨에스', '골드')
+    if '시에스' in temp:
+        temp = temp.replace('시에스', '골드')
+    if '미니언' in temp:
+        temp = temp.replace('미니언', '골드')
+    if '킬데스' in temp:
+        temp = temp.replace('킬데스', '킬뎃')
+    if '챔' in temp:
+        temp = temp.replace('챔피온', '챔피언')
+        temp = temp.replace('챔피언', '챔피언')
+        temp = temp.replace('챔프', '챔피언')
+        temp = temp.replace('챔', '챔피언')
+    if '캐릭' in temp:
+        temp = temp.replace('캐릭', '챔피언')
 
     # 한글을 제외한 데이터를 모두 공백으로 처리
     temp[i] = re.compile('[^가-힣]').sub(' ', str(temp[i]))
