@@ -30,7 +30,7 @@ champNum = 383
 # print(getRecommendation(cosine_sim))
 
 #keyword 기반 추천
-embedding_model = Word2Vec.load('./models/word2vec_movie_review.model')
+embedding_model = Word2Vec.load('./models/word2vec_champ_review.model')
 # keyword = ('홍길동')
 # try:
 #     sim_word = embedding_model.wv.most_similar(keyword, topn = 10)
