@@ -159,7 +159,7 @@ class Exam(QWidget, form_window):
         try:
             sim_word = self.embedding_model.wv.most_similar(keyword, topn=10)
         except:
-            return '다른 키워드를 입력하시오'
+            return
 
         print(sim_word)
 
